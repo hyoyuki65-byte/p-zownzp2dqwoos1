@@ -279,7 +279,7 @@ const thumbs = {
             const wideClass = video.number === 7 ? ' card-wide' : '';
             
 
-            return `<div class="video-card${wideClass}" onclick="openFolder()">
+            return `<div class="video-card${wideClass}" onclick="openVideo('${video.id}')">
                 <div class="video-wrapper">
                     <div class="thumb-bg" style="background-image:url(${thumbs[video.id]})"></div><img class="thumb-img" src="${thumbs[video.id]}" alt="${video.title}">
                     <div class="video-number">${video.number}</div>
@@ -294,10 +294,9 @@ const thumbs = {
             </div>`;
         }
 
-        // Open Google Drive folder 2
-        function openFolder() {
-            const folderUrl = 'https://drive.google.com/drive/folders/1OuNmESiXIdBEYP8phE03Gf0IBsQwbMsU?usp=sharing';
-            window.open(folderUrl, '_blank');
+        // Open the YouTube video in a new tab
+        function openVideo(videoId) {
+            window.open('https://www.youtube.com/watch?v=' + videoId, '_blank', 'noopener');
         }
 
         // Navigate back to page 1

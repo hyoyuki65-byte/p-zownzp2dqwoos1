@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TikTok Authorization | YUKIKO Social Publisher</title></head>
+<body>
+<main style="font-family:Arial,sans-serif;max-width:720px;margin:80px auto;padding:24px">
+<h1>TikTok Authorization</h1>
+<p id="status">TikTokからの認証結果を確認しています…</p>
+<p>このページは YUKIKO Social Publisher のTikTok認証用コールバックです。</p>
+</main>
+<script>
+const p=new URLSearchParams(location.search);
+const el=document.getElementById('status');
+if(p.get('error')) el.textContent='TikTok認証が完了しませんでした: '+(p.get('error_description')||p.get('error'));
+else if(p.get('code')) el.textContent='TikTokから認証コードを受信しました。認証処理を続行できます。';
+else el.textContent='TikTok認証の待機ページです。';
+</script>
+</body></html>
